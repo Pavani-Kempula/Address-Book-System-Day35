@@ -3,6 +3,7 @@ package com.bridgelabz.addressbook;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.HashMap;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -29,5 +30,12 @@ public class AddressBookMainTest {
         AddressBookService addressBookService = new AddressBookService();
         List<PersonDetails> contactList  = addressBookService.getContatctsAddedAfterdate("2020-1-1");
         Assert.assertEquals(4, contactList.size());
+    }
+
+    @Test
+    public void givenAddressbookDB_WhenInSameCity_ShouldReturnNumberOfContacts() {
+        AddressBookService addressBookService = new AddressBookService();
+        HashMap<String, Integer> sameCity = addressBookService.getContactHaveSameCity();
+        Assert.assertEquals(3, sameCity.size());
     }
 }
