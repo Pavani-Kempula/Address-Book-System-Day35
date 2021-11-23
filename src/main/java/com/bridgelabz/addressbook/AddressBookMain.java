@@ -28,11 +28,11 @@ public class AddressBookMain {
         AddressBookService addressBookService = new AddressBookService();
         boolean isExit = false;
         while (!isExit) {
-            System.out.print("Enter Number As Per Your Choice:\n 1.Add-New Contacts:\n" +
-                    "2.Display-All Records:\n 3.Edit Contact:\n 4.Delete Contact:\n" +
-                    "5.Search Person In city Or State:\n 6.Get Number Of Contacts In City Or State:\n" +
-                    "7.Sort And Display Contact:\n 8.Sort By Zip-Code:\n 9.Read Data From File:\n" +
-                    "10.Write To CSVFile:\n 11.Read From CSVFile:\n 12.Exit:");
+            System.out.print("Enter Number As Per Your Choice:\n 1.Add-New Contacts:\n 2.Display-All Records:\n" +
+                    "3.Edit Contact:\n 4.Delete Contact:\n 5.Search Person In city Or State:\n" +
+                    "6.Get Number Of Contacts In City Or State:\n 7.Sort And Display Contact:\n 8.Sort By Zip-Code:\n" +
+                    "9.Read Data From File:\n 10.Write To CSVFile:\n 11.Read From CSVFile:\n 12.Write TO JSONFile:\n" +
+                    "13.Read From JSONFile:\n 14.Exit:");
             int userInput = scanner.nextInt();
             switch (userInput) {
                 case 1:
@@ -82,6 +82,14 @@ public class AddressBookMain {
                     addressBookService.readFromCsvFile();
                     break;
                 case 12:
+                    //write to gson.
+                    addressBookService.writeToJson();
+                    break;
+                case 13:
+                    //read from gson.
+                    addressBookService.readFromJson();
+                    break;
+                case 14:
                     //Exit from program.
                     isExit = true;
                     break;
@@ -90,7 +98,6 @@ public class AddressBookMain {
             }
         }
     }
-
     public static void main(String[] args) {
         AddressBookMain addressBookMain = new AddressBookMain();
         addressBookMain.chooseOption();
