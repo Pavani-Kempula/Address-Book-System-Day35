@@ -1,5 +1,7 @@
 package com.bridgelabz.addressbook;
 
+import java.util.Objects;
+
 /*********************************************************************
  * @author Pavani
  *
@@ -10,6 +12,7 @@ package com.bridgelabz.addressbook;
  *********************************************************************/
 
 public class PersonDetails {
+    private int id;
     private String firstName;
     private String lastName;
     private String address;
@@ -35,6 +38,14 @@ public class PersonDetails {
     }
 
     public PersonDetails(int id, String firstName, String lastname, String address, String city, String state, String zip, int phoneNumber, String email) { }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -112,5 +123,20 @@ public class PersonDetails {
                 ", Phone-Number =" + phoneNumber +
                 ", EmailId ='" + emailId + '\'' +
                 ']';
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        PersonDetails other = (PersonDetails) obj;
+        return Objects.equals(address, other.address) && Objects.equals(city, other.city)
+                && Objects.equals(emailId, other.emailId) && Objects.equals(firstName, other.firstName) && id == other.id
+                && Objects.equals(lastName, other.lastName) && phoneNumber == other.phoneNumber
+                && Objects.equals(state, other.state) && Objects.equals(zipCode, other.zipCode);
     }
 }
