@@ -1,5 +1,6 @@
 package com.bridgelabz.addressbook;
 
+import java.util.List;
 import java.util.Objects;
 
 /*********************************************************************
@@ -21,12 +22,15 @@ public class PersonDetails {
     private int zipCode;
     private long phoneNumber;
     private String emailId;
+    private List<String> groups;
 
-    public PersonDetails() {
+    public PersonDetails()
+    {
 
     }
 
-    public PersonDetails(String firstName, String lastName, String address, String city, String state, int zipCode, long phoneNumber, String emailId) {
+    public PersonDetails(int id, String firstName, String lastName, String address, String city, String state, int zipCode, long phoneNumber, String emailId, List<String> groups) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -35,9 +39,13 @@ public class PersonDetails {
         this.zipCode = zipCode;
         this.phoneNumber = phoneNumber;
         this.emailId = emailId;
+        this.groups = groups;
     }
 
-    public PersonDetails(int id, String firstName, String lastname, String address, String city, String state, String zip, int phoneNumber, String email) { }
+    public PersonDetails(int id, String first, String last, String address, String city, String state, String zip, int phoneNumber, String email, List<String> groups) { }
+
+    public PersonDetails(int id, String firstName, String lastname, String address, String city, String state, String zip, int phoneNumber, String email) {
+    }
 
     public int getId() {
         return id;
